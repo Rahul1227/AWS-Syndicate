@@ -9,7 +9,8 @@ exports.handler = async (event) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                message: 'Hello from Lambda!'
+                statusCode: 200,
+                message: 'Hello from Lambda'
             })
         };
     } else {
@@ -19,7 +20,8 @@ exports.handler = async (event) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                message: `Cannot ${method} ${path}`
+                statusCode: 400,
+                message: `Bad request syntax or unsupported method. Request path: ${path}. HTTP method: ${method}`
             })
         };
     }
